@@ -16,9 +16,9 @@
 	<properties>
 		<java.version>17</java.version>
 
-		<flyway.user>postgres</flyway.user>
-		<flyway.password>pass</flyway.password>
-		<flyway.schemas>public</flyway.schemas>
+		<!-- <flyway.user></flyway.user>
+		<flyway.password></flyway.password>
+		<flyway.schemas></flyway.schemas> -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -94,14 +94,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<configuration>
-					<url>jdbc:postgresql://localhost:5432/accounting_db</url>
+					<url></url>
 					<cleanDisabled>false</cleanDisabled>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 

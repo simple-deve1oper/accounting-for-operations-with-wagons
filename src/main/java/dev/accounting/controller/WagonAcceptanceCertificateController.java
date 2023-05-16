@@ -115,6 +115,9 @@ public class WagonAcceptanceCertificateController {
             @ApiResponse(responseCode = "400", description = "Validation Error", content = {
                     @Content(schema = @Schema(implementation = ApiErrorResponse.class))
             }),
+            @ApiResponse(responseCode = "404", description = "Wagon not found", content = {
+                @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            }),
             @ApiResponse(responseCode = "409", description = "Document already exists", content = {
                     @Content(schema = @Schema(implementation = ApiErrorResponse.class))
             })
@@ -268,7 +271,7 @@ public class WagonAcceptanceCertificateController {
     private void checkExistsWagonsInDB(List<String> wagonNumbers) {
         for (String wagonNumber : wagonNumbers) {
             if (!wagonService.existByNumber(wagonNumber)) {
-                throw new EntityAlreadyExistsException(String.format("Вагона с номером '%d' не существует", wagonNumber));
+                throw new EntityNotFoundException(String.format("Вагона с номером '%d' не существует", wagonNumber));
             }
         }
     }
