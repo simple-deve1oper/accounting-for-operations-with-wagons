@@ -1,0 +1,23 @@
+logging:
+  level:
+    org:
+      springframework: ERROR
+    io:
+      app: TRACE
+  file:
+    name: application.log
+
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    driver-class: org.postgresql.Driver
+    url: 
+    username: 
+    password: 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgresPlusDialect
+        show_sql: true
