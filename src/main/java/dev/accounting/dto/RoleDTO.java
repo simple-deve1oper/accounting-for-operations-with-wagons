@@ -5,13 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Класс для описания DTO типа Role
+ * @version 1.0
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Schema(description = "Информация о роли пользователя")
 public class RoleDTO {
     @Schema(description = "Логин")
-    private String login;
+    private String login;   // логин
     @Schema(description = "Роль")
-    private String role;
+    private String role;    // роль
 }

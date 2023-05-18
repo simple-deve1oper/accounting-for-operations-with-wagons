@@ -34,6 +34,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+/**
+ * Тестирование класса StationModelController
+ * @version 1.0
+ */
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(StationModelController.class)
 public class StationModelControllerTest {

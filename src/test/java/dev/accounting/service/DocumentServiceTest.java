@@ -18,6 +18,10 @@ import org.springframework.data.domain.Sort;
 
 import java.util.*;
 
+/**
+ * Тестирование класса DocumentService
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class DocumentServiceTest {
     @Mock

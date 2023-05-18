@@ -30,6 +30,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+/**
+ * Тестирование класса CargoNomenclatureController
+ * @version 1.0
+ */
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(CargoNomenclatureController.class)
 public class CargoNomenclatureControllerTest {

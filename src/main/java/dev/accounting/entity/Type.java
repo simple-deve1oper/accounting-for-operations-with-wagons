@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Класс для описания типа вагона
+ * @version 1.0
+ */
 @Entity
 @Table(name = "types")
 @AllArgsConstructor
@@ -16,10 +20,10 @@ public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long id;            // идентификатор
     @Column(name = "name")
-    private String name;
+    private String name;        // наименование
 
     @OneToMany(mappedBy = "type")
-    private List<Wagon> wagons;
+    private List<Wagon> wagons; // вагоны
 }

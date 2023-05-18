@@ -17,6 +17,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Тестирование класса DataTransformation
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class DataTransformationTest {
     @Mock

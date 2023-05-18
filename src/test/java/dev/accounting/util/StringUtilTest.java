@@ -11,6 +11,10 @@ import org.springframework.validation.FieldError;
 
 import java.util.Collections;
 
+/**
+ * Тестирование класса StringUtil
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class StringUtilTest {
     @Mock

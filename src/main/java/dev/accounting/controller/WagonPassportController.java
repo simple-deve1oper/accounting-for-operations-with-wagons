@@ -30,6 +30,10 @@ import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Контроллер для работы со справочником паспорта вагонов
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/passport")
 @Tag(name = "Методы для работы со справочником паспорта вагонов")

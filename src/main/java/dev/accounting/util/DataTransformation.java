@@ -13,7 +13,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Класс для перевода данных из сущности в DTO и наоборот
+ * @version 1.0
+ */
 public class DataTransformation {
+    /**
+     * Перевод данных объекта типа Type из сущности в DTO
+     * @param type - объекта типа Type
+     * @return объект типа TypeDTO
+     */
     public static TypeDTO convertingTypeDataFromEntityToDTO(Type type) {
         Long id = type.getId();
         String name = type.getName();
@@ -23,6 +32,11 @@ public class DataTransformation {
         return typeDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Wagon из сущности в DTO
+     * @param wagon - объект типа Wagon
+     * @return объект типа WagonDTO
+     */
     public static WagonDTO convertingWagonDataFromEntityToDTO(Wagon wagon) {
         Long id = wagon.getId();
         String number = wagon.getNumber();
@@ -42,11 +56,22 @@ public class DataTransformation {
         return wagonDTO;
     }
 
+    /**
+     * Перевод данных списка объектов типа Wagon из сущности в DTO
+     * @param wagons - список объектов типа Wagon
+     * @return список объектов типа WagonDTO
+     */
     public static List<WagonDTO> convertingListDataWagonsFromEntityToDTO(List<Wagon> wagons) {
         return wagons.stream().map(wagon -> convertingWagonDataFromEntityToDTO(wagon))
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Перевод данных объекта типа Wagon из DTO в сущность
+     * @param wagonDTO - объект типа WagonDTO
+     * @param typeService - сервис для класса Type
+     * @return объект типа Wagon
+     */
     public static Wagon convertingWagonDataFromDTOToEntity(WagonDTO wagonDTO, TypeService typeService) {
         Long id = wagonDTO.getId();
         String number = wagonDTO.getNumber();
@@ -66,6 +91,11 @@ public class DataTransformation {
         return wagon;
     }
 
+    /**
+     * Перевод данных объекта типа Pathway из сущности в DTO
+     * @param pathway - объект типа Pathway
+     * @return объект типа PathwayModelDTO
+     */
     public static PathwayModelDTO convertingPathwayFromEntityToModelDTO(Pathway pathway) {
         Long id = pathway.getId();
         Integer number = pathway.getNumber();
@@ -75,6 +105,11 @@ public class DataTransformation {
         return pathwayModelDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Station из сущности в DTO
+     * @param station объект типа Station
+     * @return объект типа StationModelDTO
+     */
     public static StationModelDTO convertingStationFromEntityToModelDTO(Station station) {
         Long id = station.getId();
         String name = station.getName();
@@ -87,6 +122,11 @@ public class DataTransformation {
         return stationModelDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Pathway из DTO в сущность
+     * @param pathwayModelDTO - объект типа PathwayModelDTO
+     * @return объект типа Pathway
+     */
     public static Pathway convertingPathwayFromModelDTOToEntity(PathwayModelDTO pathwayModelDTO) {
         Long id = pathwayModelDTO.getId();
         Integer number = pathwayModelDTO.getNumber();
@@ -96,6 +136,11 @@ public class DataTransformation {
         return pathway;
     }
 
+    /**
+     * Перевод данных объекта типа Station из DTO в сущность
+     * @param stationModelDTO - объект типа StationModelDTO
+     * @return объект типа Station
+     */
     public static Station convertingStationFromModelDTOToEntity(StationModelDTO stationModelDTO) {
         Long id = stationModelDTO.getId();
         String name = stationModelDTO.getName();
@@ -113,6 +158,11 @@ public class DataTransformation {
         return station;
     }
 
+    /**
+     * Перевод данных объекта типа Station из сущности в DTO
+     * @param station - объект типа Station
+     * @return объект типа StationDTO
+     */
     public static StationDTO convertingStationDataFromEntityToDTO(Station station) {
         Long id = station.getId();
         String name = station.getName();
@@ -122,6 +172,12 @@ public class DataTransformation {
         return stationDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Pathway из DTO в сущность
+     * @param pathwayDTO - объект типа PathwayDTO
+     * @param stationService - сервис для класса Station
+     * @return объект типа Pathway
+     */
     public static Pathway convertingPathwayDataFromDTOToEntity(PathwayDTO pathwayDTO, StationService stationService) {
         StationDTO stationDTOFromObject = pathwayDTO.getStation();
         Station stationFromDB = stationService.findById(stationDTOFromObject.getId());
@@ -143,6 +199,11 @@ public class DataTransformation {
         return pathway;
     }
 
+    /**
+     * Перевод данных объекта типа Pathway из сущности в DTO
+     * @param pathway - объект типа Pathway
+     * @return объект типа PathwayDTO
+     */
     public static PathwayDTO convertingPathwayDataFromEntityToDTO(Pathway pathway) {
         Long id = pathway.getId();
         StationDTO station = convertingStationDataFromEntityToDTO(pathway.getStation());
@@ -153,6 +214,11 @@ public class DataTransformation {
         return pathwayDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Cargo из сущности в DTO
+     * @param cargo - объект типа Cargo
+     * @return объект типа CargoDTO
+     */
     public static CargoDTO convertingCargoDataFromEntityToDTO(Cargo cargo) {
         Long id = cargo.getId();
         String code = cargo.getCode();
@@ -163,6 +229,11 @@ public class DataTransformation {
         return cargoDTO;
     }
 
+    /**
+     * Перевод данных объекта типа Cargo из DTO в сущность
+     * @param cargoDTO - объект типа CargoDTO
+     * @return объект типа Cargo
+     */
     public static Cargo convertingCargoDataFromDTOToEntity(CargoDTO cargoDTO) {
         Long id = cargoDTO.getId();
         String code = cargoDTO.getCode();
@@ -178,6 +249,11 @@ public class DataTransformation {
         return cargo;
     }
 
+    /**
+     * Перевод данных объекта типа Document из сущности в DTO
+     * @param document - объект типа Document
+     * @return объект типа DocumentDTO
+     */
     public static DocumentDTO convertingDocumentDataFromEntityToDTO(Document document) {
         Long id = document.getId();
         Integer serialNumber = document.getSerialNumber();
@@ -203,6 +279,13 @@ public class DataTransformation {
         return documentDTO;
     }
 
+    /**
+     * Создание списка объектов типа Document из объекта типа ReceptionDTO
+     * @param receptionDTO - объект типа ReceptionDTO
+     * @param cargoService - сервис для класса Cargo
+     * @param pathwayService - сервис для класса Pathway
+     * @return - список объектов типа Document
+     */
     public static List<Document> createListDocumentsFromReceptionDTO(ReceptionDTO receptionDTO, CargoService cargoService, PathwayService pathwayService) {
         List<WagonBasicDTO> wagonsDTO = receptionDTO.getWagons();
         Pathway pathway = pathwayService.findById(receptionDTO.getPathway().getId());

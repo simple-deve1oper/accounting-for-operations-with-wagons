@@ -15,6 +15,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collections;
 import java.util.Optional;
 
+/**
+ * Тестирование класса TypeService
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class TypeServiceTest {
     @Mock

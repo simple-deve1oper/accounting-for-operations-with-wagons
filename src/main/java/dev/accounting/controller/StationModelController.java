@@ -31,6 +31,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Контроллер для работы со справочником станционной модели
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/model")
 @Tag(name = "Методы для работы со справочником станционной модели")

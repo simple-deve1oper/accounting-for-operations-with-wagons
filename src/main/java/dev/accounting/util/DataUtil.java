@@ -8,6 +8,10 @@ import org.springframework.validation.BindingResult;
  * @version 1.0
  */
 public class DataUtil {
+    /**
+     * Проверка объекта типа BindingResult на ошибки
+     * @param bindingResult - объект типа BindingResult
+     */
     public static void checkValidation(BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String errors = StringUtil.getErrorsFromValidation(bindingResult);

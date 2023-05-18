@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Репозиторий для класса Document
+ * @version 1.0
+ */
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, Long> {
     /**
