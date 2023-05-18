@@ -28,6 +28,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Контроллер для работы со справочником номенклатур грузов
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/cargos")
 @Tag(name = "Методы для работы со справочником номенклатур грузов")

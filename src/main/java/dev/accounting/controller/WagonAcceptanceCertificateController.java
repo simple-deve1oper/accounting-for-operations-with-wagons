@@ -33,6 +33,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Контроллер для работы со справочником натурного листа для приема вагонов
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/documents")
 @Tag(name = "Методы для работы со справочником натурного листа для приема вагонов")
@@ -151,6 +155,17 @@ public class WagonAcceptanceCertificateController {
 
     @PutMapping("/reorder")
     @Operation(summary = "Перестановка вагонов внутри станции")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "OK", content = {
+            @Content(array = @ArraySchema(schema = @Schema(implementation = DocumentDTO.class)))
+        }),
+        @ApiResponse(responseCode = "400", description = "Validation Error", content = {
+                @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+        }),
+        @ApiResponse(responseCode = "404", description = "Wagon not found", content = {
+            @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+        })
+    })
     public ResponseEntity<List<DocumentDTO>> reorder(
             @Parameter(description = "Объект типа ChangeDTO") @RequestBody @Valid ChangeDTO changeDTO,
             @Parameter(hidden = true) BindingResult bindingResult

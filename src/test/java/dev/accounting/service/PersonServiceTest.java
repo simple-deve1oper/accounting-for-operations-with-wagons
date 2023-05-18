@@ -16,6 +16,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collections;
 import java.util.Optional;
 
+/**
+ * Тестирование класса PersonService
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class PersonServiceTest {
     @Mock

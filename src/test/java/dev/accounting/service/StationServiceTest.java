@@ -17,6 +17,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Тестирование класса StationService
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class StationServiceTest {
     @Mock

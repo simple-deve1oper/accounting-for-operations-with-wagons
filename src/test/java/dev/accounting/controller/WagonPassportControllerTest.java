@@ -32,6 +32,10 @@ import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * Тестирование класса WagonPassportController
+ * @version 1.0
+ */
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(WagonPassportController.class)
 public class WagonPassportControllerTest {

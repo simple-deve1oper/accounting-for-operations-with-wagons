@@ -14,6 +14,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collections;
 
+/**
+ * Тестирование класса PersonDetailsService
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class PersonDetailsServiceTest {
     @Mock

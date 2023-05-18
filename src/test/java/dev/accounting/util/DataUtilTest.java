@@ -12,6 +12,10 @@ import org.springframework.validation.FieldError;
 
 import java.util.Collections;
 
+/**
+ * Тестирование класса DataUtil
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 public class DataUtilTest {
     @Mock

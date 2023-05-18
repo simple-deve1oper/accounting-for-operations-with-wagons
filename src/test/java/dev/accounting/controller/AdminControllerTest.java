@@ -24,6 +24,10 @@ import java.util.Collections;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * Тестирование класса AdminController
+ * @version 1.0
+ */
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(AdminController.class)
 public class AdminControllerTest {

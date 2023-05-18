@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 
+/**
+ * Контроллер для методов панели администратора
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/v1/admin")
 @Tag(name = "Методы панели администратора")

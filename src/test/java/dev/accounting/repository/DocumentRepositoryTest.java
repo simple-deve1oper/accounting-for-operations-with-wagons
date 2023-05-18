@@ -10,6 +10,10 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Тестирование интерфейса DocumentRepository
+ * @version 1.0
+ */
 @DataJpaTest
 public class DocumentRepositoryTest {
     @Autowired

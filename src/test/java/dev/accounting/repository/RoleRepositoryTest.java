@@ -8,6 +8,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Optional;
 
+/**
+ * Тестирование интерфейса RoleRepository
+ * @version 1.0
+ */
 @DataJpaTest
 public class RoleRepositoryTest {
     @Autowired
