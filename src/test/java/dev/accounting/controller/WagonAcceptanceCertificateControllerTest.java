@@ -233,7 +233,7 @@ public class WagonAcceptanceCertificateControllerTest {
 
     @Test
     @WithMockUser(username = "moderator", password = "1234", roles = {"MODERATOR"})
-    void wagonAcceptanceCertificateController_departure() {
+    void wagonAcceptanceCertificateController_departure() throws Exception {
         Mockito.when(pathwayService.findById(1L)).thenReturn(pathway);
         Mockito.when(documentService.maxSerialNumberByDepartureDateIsNullAndPathway_Id(1L)).thenReturn(2);
         Mockito.when(documentService.findByDepartureDateIsNullAndPathway_IdOrderBySerialNumberLimitTo(1L, 1))
@@ -247,10 +247,25 @@ public class WagonAcceptanceCertificateControllerTest {
         Document modifiedSerialNumber = document2 = new Document(2L, 1, "4566543", cargo,
                 22.5, 43.1, pathway, null);
 
-        List<Document> documents1 = Arrays.asList(departure, document2);
+        List<Document> documents1 = Collections.singletonList(departure);
         List<Document> documents2 = Collections.singletonList(modifiedSerialNumber);
         Mockito.when(documentService.saveAll(Mockito.anyList()))
                 .thenReturn(documents1, documents2);
+
+        List<DocumentDTO> documents1DTO = documents1.stream()
+                .map(document -> DataTransformation.convertingDocumentDataFromEntityToDTO(document))
+                .collect(Collectors.toList());
+        String responseJson = objectMapper.writeValueAsString(documents1DTO);
+        
+        mockMvc.perform(patch("/api/v1/documents/departure/1/pathway")
+                .contentType(MediaType.APPLICATION_JSON).param("quantity", "1"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(responseJson))
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[*].id", containsInAnyOrder(1)))
+                .andExpect(jsonPath("$[*].serialNumber", containsInAnyOrder(1)))
+                .andExpect(jsonPath("$[*].wagonNumber", containsInAnyOrder("1234567")));
     }
 
     @Test
