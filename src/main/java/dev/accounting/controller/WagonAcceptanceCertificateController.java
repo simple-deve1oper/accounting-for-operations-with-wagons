@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -145,7 +146,7 @@ public class WagonAcceptanceCertificateController {
             count = maxSerialNumber + 1;
         }
         settingSerialNumber(documents, count);
-        documentService.saveAll(documents);
+        documents = documentService.saveAll(documents);
         List<DocumentDTO> documentsDTO = documents.stream()
                 .map(document -> DataTransformation.convertingDocumentDataFromEntityToDTO(document))
                 .collect(Collectors.toList());
@@ -198,7 +199,13 @@ public class WagonAcceptanceCertificateController {
         }
         documents.forEach(document -> document.setPathway(pathway));
         documents = documentService.saveAll(documents);
-        documents.forEach(document -> pathway.getDocuments().add(document));
+        for (Document document : documents) {
+            if (pathway.getDocuments() == null || pathway.getDocuments().isEmpty()) {
+                pathway.setDocuments(new ArrayList<>(){{add(document);}});
+            } else {
+                pathway.getDocuments().add(document);
+            }
+        }
 
         List<Document> documentsFromDBWithOldPathway = documentService.findByDepartureDateIsNullAndPathway_Id(pathwayDTOOldValue.getId(), Sort.by("serialNumber"));
         settingSerialNumber(documentsFromDBWithOldPathway, 1);
